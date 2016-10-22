@@ -1,0 +1,51 @@
+	<% if flash[:errors] %>
+		<% flash[:errors].each do |e|%>
+			<p><%= e %></p>
+		<% end %>	
+	<% end %>
+
+<div id="lender" style="display:block">
+	<h3>Lender</h3>
+	<form action="create_lender" method="POST">
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		First Name: <input id="first_name" type="text" name="lender[first_name]"><br>
+		Last Name: <input id="last_name" type="text" name="lender[last_name]"><br>
+		Email: <input id="Email" type="text" name="lender[email]"><br>
+		Password: <input id="password" type="password" name="lender[password]"><br>
+		Password Confirmation: <input id="password_confirmation" type="password" name="lender[password_confirmation]"><br>
+		Money: 
+		<select id="money" name="lender[money]"><br>
+			<option value=100 selected><%=number_to_currency(100)%></option>
+			<option value=200><%=number_to_currency(200)%></option>
+			<option value=300><%=number_to_currency(300)%></option>
+			<option value=400><%=number_to_currency(400)%></option>
+			<option value=500><%=number_to_currency(500)%></option>
+		</select><br>
+		<input type="submit" name="register" value="Register"><br>
+	</form>
+	<a href="/online_lending/login">Already a member?</a>
+</div>
+
+<div id="borrower" style="display:block">
+	<h3>Borrower</h3>
+	<form action="create_borrower" method="POST">
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		First Name: <input id="first_name" type="text" name="borrower[first_name]"><br>
+		Last Name: <input id="last_name" type="text" name="borrower[last_name]"><br>
+		Email: <input id="Email" type="text" name="borrower[email]"><br>
+		Password: <input id="password" type="password" name="borrower[password]"><br>
+		Password Confirmation: <input id="password_confirmation" type="password" name="borrower[password_confirmation]"><br>
+		Need Money For: <input id="purpose" type="text" name="borrower[purpose]"><br>
+		Description: <textarea id="description" name="borrower[description]"></textarea><br><br>
+		Amount Needed: 
+		<select id="money" name="borrower[money]"><br>
+			<option value=1000><%=number_to_currency(1000)%></option>
+			<option value=2000><%=number_to_currency(2000)%></option>
+			<option value=3000><%=number_to_currency(3000)%></option>
+			<option value=4000><%=number_to_currency(4000)%></option>
+			<option value=5000 selected><%=number_to_currency(5000)%></option>
+		</select><br>
+		<input type="submit" name="register" value="Register"><br>
+	</form>
+	<a href="/online_lending/login">Already a member?</a>
+</div>

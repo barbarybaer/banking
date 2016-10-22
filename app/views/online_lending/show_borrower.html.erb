@@ -1,0 +1,19 @@
+Name: <%=@user.first_name%> . ' ' . <%=@user.last_name%>
+Amount Need: <%=@user.money%>
+Amount Raised: <%=@user.raised%>
+
+List of people who lent you money:
+<table>
+	<tr>
+		<th>Name</th><th>Email</th><th>Amount Lent</th>
+	</tr>
+	<% if @lenders %>
+	<% @lenders.each do |l|%>
+		<tr>
+			<th><%= l.first_name %> <%= l.last_name %></th>
+			<th><%= l.email %></th>
+			<th><%= l.amount %></th>
+		</tr>
+	<% end %>
+	
+</table>
